@@ -1,90 +1,86 @@
-import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import profileImage from "figma:asset/697509c293d96767ca3a6b91b5c3286f191756f9.png";
+import profileImage from "figma:asset/dc773c44342fa4275e7583a499c1f28c2a3a7879.png";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-20">
-      {/* Background Build Effects */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        {/* Subtle Tech Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+    <section className="min-h-screen relative flex items-center overflow-hidden pt-20 md:pt-0" id="about">
+      {/* Background Yellow Wave (Desktop) */}
+      <div className="absolute top-0 right-0 h-full w-[55%] hidden md:block z-0 pointer-events-none">
+         <svg
+            viewBox="0 0 771 871"
+            className="w-full h-full object-cover text-primary fill-current"
+            preserveAspectRatio="none"
+         >
+            <path d="M0 0H771.833V871.168H134.46C134.46 871.168 -48.26 620.5 24.5 450C97.26 279.5 0 0 0 0Z" />
+         </svg>
       </div>
+      
+      {/* Background Yellow Wave (Mobile - Simplified) */}
+      <div className="absolute top-0 right-0 w-3/4 h-1/2 bg-primary rounded-bl-full md:hidden z-0 opacity-20" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-10 grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-10 md:gap-16 items-center">
-        {/* Text Content */}
-        <div className="space-y-8 order-2 md:order-1 text-center md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-accent-foreground font-mono mb-4 text-sm md:text-base inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Hi, I'm Suvroneel Nathak
-            </h2>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-foreground mb-6 leading-[1.1]">
-              Building & deploying <br />
-              <span className="text-muted-foreground">production AI.</span>
-            </h1>
-            <div className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed space-y-2 md:space-y-1">
-              <p>Data Scientist • AI/ML Engineer • Full-Stack</p>
-              <p>NLP • Computer Vision • Multi-Agent Systems</p>
-              <p className="text-foreground/90 font-medium pt-3 text-base md:text-lg border-t border-border/40 mt-4 w-full md:w-fit mx-auto md:mx-0">
-                6 systems in production: AWS • Docker • FastAPI • Streamlit
-              </p>
-            </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2"
-          >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
+        {/* Left: Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6 md:space-y-8 order-2 md:order-1"
+        >
+          <h3 className="text-primary font-bold tracking-wider uppercase text-lg md:text-xl font-brand">
+            Suvroneel Nathak
+          </h3>
+          
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
+            Building & deploying <br />
+            production AI
+          </h1>
+          
+          <div className="text-muted-foreground text-lg md:text-xl max-w-lg leading-relaxed font-body space-y-2">
+             <p className="font-bold text-foreground/80">
+               Data Scientist • AI/ML Engineer • Full-Stack
+             </p>
+             <p>
+               NLP • Computer Vision • Multi-Agent Systems
+             </p>
+             <p className="text-base pt-2 block opacity-90 font-medium border-t-2 border-primary/20 w-fit">
+               6 systems in production: AWS • Docker • FastAPI • Streamlit
+             </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors shadow-lg shadow-foreground/5"
+              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-lg hover:shadow-lg transition-all transform hover:-translate-y-1"
             >
-              View Projects
+              Projects
             </a>
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full border border-border bg-transparent text-foreground font-medium hover:bg-secondary transition-colors group"
+              href="https://www.linkedin.com/in/suvroneel-nathak/"
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-3 border-2 border-foreground text-foreground rounded-lg font-medium text-lg hover:bg-foreground hover:text-background transition-all transform hover:-translate-y-1"
             >
-              Contact Me
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              LinkedIn
             </a>
-          </motion.div>
-        </div>
-
-        {/* Profile Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, x: 20 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="order-1 md:order-2 flex justify-center md:justify-start md:pl-8"
-        >
-          <div className="relative group">
-            {/* Decorative ring/backdrop behind image */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-            
-            <div className="relative w-[200px] md:w-[240px] aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-muted/20">
-              <img
-                src={profileImage}
-                alt="Suvroneel Nathak"
-                className="w-full h-full object-cover object-top scale-[1.35] translate-y-[10%]"
-                style={{ objectPosition: "50% 15%" }}
-              />
-              
-              {/* Subtle inner shadow for depth */}
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl" />
-            </div>
           </div>
+        </motion.div>
+
+        {/* Right: Image */}
+        <motion.div
+           initial={{ opacity: 0, x: 20 }}
+           animate={{ opacity: 1, x: 0 }}
+           transition={{ duration: 0.8 }}
+           className="order-1 md:order-2 flex justify-center md:justify-end relative h-full md:h-auto items-center"
+        >
+            {/* Cutout Image Container - No borders/background to mix with yellow wave */}
+            <div className="relative w-[280px] md:w-[420px] lg:w-[480px] z-10">
+               <img 
+                 src={profileImage} 
+                 alt="Suvroneel Nathak" 
+                 className="w-full h-auto object-contain drop-shadow-2xl"
+               />
+            </div>
         </motion.div>
       </div>
     </section>

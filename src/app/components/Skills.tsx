@@ -2,29 +2,20 @@ import { Section } from "./Section";
 
 const skills = [
   {
-    category: "Languages",
-    items: ["Python", "SQL", "JavaScript/TypeScript", "HTML/CSS", "Bash"],
+    category: "Languages & Core",
+    items: ["Python", "SQL", "C++", "JavaScript", "TypeScript"],
   },
   {
-    category: "AI & ML",
-    items: [
-      "PyTorch",
-      "TensorFlow",
-      "Scikit-learn",
-      "Hugging Face",
-      "LangChain",
-      "YOLOv8",
-      "BERT",
-      "LLMs (Llama, Mistral)",
-    ],
+    category: "AI & Machine Learning",
+    items: ["PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "YOLOv8", "Hugging Face", "LangChain", "LlamaIndex"],
   },
   {
-    category: "Backend & Cloud",
-    items: ["FastAPI", "Django", "AWS (Lambda, S3, RDS)", "Supabase", "Docker", "PostgreSQL"],
+    category: "Data & Backend",
+    items: ["PostgreSQL", "FastAPI", "Django", "Flask", "Pandas", "NumPy", "Supabase"],
   },
   {
-    category: "Tools & DevOps",
-    items: ["Git", "n8n", "Streamlit", "Linux", "CI/CD"],
+    category: "DevOps & Tools",
+    items: ["Docker", "AWS (Lambda, S3)", "Git/GitHub", "Streamlit", "Linux"],
   },
 ];
 
@@ -35,15 +26,15 @@ export function Skills() {
         {skills.map((skillGroup) => (
           <div 
             key={skillGroup.category} 
-            className="group p-6 rounded-xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
+            className="group p-8 rounded-3xl bg-white shadow-lg border border-transparent hover:border-primary/30 hover:shadow-xl transition-all hover:-translate-y-1"
           >
-            <h3 className="text-lg font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+            <h3 className="text-xl font-bold mb-6 text-foreground font-heading group-hover:text-primary transition-colors">
               {skillGroup.category}
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {skillGroup.items.map((item) => (
-                <li key={item} className="text-muted-foreground font-mono text-sm flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:bg-foreground/50 transition-colors" />
+                <li key={item} className="text-muted-foreground font-body text-base flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary transition-colors shrink-0" />
                   {item}
                 </li>
               ))}
